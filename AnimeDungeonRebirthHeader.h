@@ -180,7 +180,7 @@ public:
 	}
 
 	void lvl_up(int Lvl) {
-		stats.set_level(Lvl + 1);
+		stats.lvl_up(Lvl);
 	}
 
 	std::string get_skill_name(int i) {
@@ -202,7 +202,7 @@ public:
 //DUNGEONS 
 //==============================
 
-int dungeonChoice();
+int dungeon_choice();
 void forest_dungeon(PLAYER& player, MonsterStatsRange st);
 void Dungeons(PLAYER& player, MONSTERS monster);
 
@@ -270,6 +270,7 @@ void fighting_box_line(std::string playerstat, std::string monsterstat, int widt
 void fighting_box(PLAYER player, MONSTERS monster);
 void fighting_stats(PLAYER player, MONSTERS monster);
 
+void action_tab_menu();
 void action_tab_box(PLAYER player, MONSTERS monster, char action);
 void action_tab(PLAYER player, MONSTERS monster, char action);
 void default_box_line(std::string text, int width);

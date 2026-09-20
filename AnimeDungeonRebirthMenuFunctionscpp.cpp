@@ -54,9 +54,9 @@ void fighting_box(PLAYER player, MONSTERS monster)
 	const int width = 17;
 		fighting_box_line(player.get_name(), monster.get_name(), width);
 
-		fighting_box_line("level_: " + stat_to_string(player.get_Level()), "level_: " + std::to_string(monster.get_Level()), width);;
-		fighting_box_line("HP_: " + stat_to_string(player.get_HP()), "HP_: " + stat_to_string(monster.get_HP()), width);
-		fighting_box_line("mana_: " + stat_to_string(player.get_mana()), "mana_: " + stat_to_string(monster.get_mana()), width);
+		fighting_box_line("LEVEL: " + stat_to_string(player.get_Level()), "LEVEL: " + std::to_string(monster.get_Level()), width);;
+		fighting_box_line("HP: " + stat_to_string(player.get_HP()), "HP: " + stat_to_string(monster.get_HP()), width);
+		fighting_box_line("MANA: " + stat_to_string(player.get_mana()), "MANA: " + stat_to_string(monster.get_mana()), width);
 		fighting_box_line("ATTACK: " + stat_to_string(player.get_damage()), "ATTACK: " + stat_to_string(monster.get_damage()), width);
 		box_top_and_bottom(width);
 }
@@ -75,7 +75,7 @@ void default_box_line(std::string text, int width)
 void action_tab_box(PLAYER player, MONSTERS monster, char action) {
 	const int width = 17;
 	action = static_cast<int>(action) - '0';
-	box_top_and_bottom(width);
+	action_tab_menu();
 	switch (action) {
 	case 1: {
 		for (int i = 1; i <= 4; i++) {
@@ -106,7 +106,7 @@ void level_up_tab_box(PLAYER& player, MONSTERS monster) {
 	std::cout << "\033[90mYou earned a " << static_cast<int>(monster.get_drop_experienece()) << " experience" << std::endl;
 	
 	if (get_new_lvl(player) == true) {
-		std::cout << "Congratulations you got level up!" << player.get_Level()-1 << "\033[0m\033[33m+ 1\033[0m" << std::endl;
+		std::cout << "Congratulations you got level up! \033[33m" << player.get_Level() << "\033[0m" << std::endl;
 	}
 	else {
 		std::cout << "You need " << static_cast<int>(player.get_Max_Experience() - player.get_experience()) << " experience for level up!\033[0m" << std::endl;
@@ -136,7 +136,7 @@ void move_choice() {
 
 }
 
-void action_tab() {
+void action_tab_menu() {
 
 	std::ifstream infile("Interface/Action_Tab.txt");
 	std::string buf;

@@ -2,7 +2,7 @@
 
 enum DUNGEONS { FOREST = 1, CAVE = 2, AIRSHIP = 3, PIRATE_BOAT = 4, VOLCANO = 5, ROGUE_VILLAGE = 6 };
 
-int dungeonChoice() {
+int dungeon_choice() {
 	int number;
 	std::cout << "Choose a dungeon: ";
 	std::cin >> number;
@@ -22,8 +22,8 @@ void forest_dungeon(PLAYER& player, MonsterStatsRange st) {
 
 
 void dungeons(PLAYER& player, MONSTERS monster) {
-	int dungeon_choice = dungeonChoice();
-	switch (dungeon_choice) {
+	int d_C = dungeon_choice();
+	switch (d_C) {
 	case FOREST: {
 
 	}
@@ -31,14 +31,3 @@ void dungeons(PLAYER& player, MONSTERS monster) {
 
 	}
 }
-
-//│    │
-//│    ├── ACTION_MENU
-//│    ├── TARGET_SELECT
-//│    ├── SKILL_SELECT
-//│    ├── INVENTORY
-//│    ├── STATUS
-//│    └── BATTLE_RESULT
-//│
-//├── INVENTORY
-//│

@@ -32,7 +32,6 @@ int main() {
 		main_menu();
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
 		std::cout << std::setfill(' ');
-		std::cout << "Insert a Command: ";
 		cmd = fighting_choice();
 		system("cls");
 		switch (cmd) {
